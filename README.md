@@ -1,4 +1,5 @@
 ## Application Details
+Website - https://sahilsharma-20.github.io/inventory_management-app/
 <img width="1364" height="603" alt="image" src="https://github.com/user-attachments/assets/96cb9527-5b80-432f-b5cf-12ca35007390" />
 <img width="1358" height="585" alt="image" src="https://github.com/user-attachments/assets/06cf0ed3-ea58-4513-a146-50fc70a40e43" />
 <img width="1357" height="551" alt="image" src="https://github.com/user-attachments/assets/5c115487-f7ab-45c2-8a7b-a4430888c06b" />
