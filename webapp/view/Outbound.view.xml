@@ -1,0 +1,49 @@
+<mvc:View
+  controllerName="inv.mgm.inventorymanagement.controller.Outbound"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+
+  <Page title="Outbound Material" showNavButton="true"
+    navButtonPress=".onNavBack" class="sapUiResponsivePadding--content">
+    <Panel headerText="Outbound Entry" class="sapUiSmallMargin">
+      <VBox class="sapUiSmallMargin">
+        <Label text="Material or Delivery Note" />
+        <HBox>
+          <Input
+            id="outboundMaterialInput"
+            placeholder="Scan or enter material or delivery note"
+            value="{/selectedOutboundMaterial}"
+            width="100%"
+          />
+          <Button
+            icon="sap-icon://bar-code"
+            press=".onScanOutboundMaterial"
+            tooltip="Scan Material"
+            class="sapUiTinyMarginBegin"
+          />
+        </HBox>
+
+        <Label text="Quantity" class="sapUiSmallMarginTop" />
+        <Input
+          placeholder="Quantity"
+          type="Number"
+          value="{/outboundQuantity}"
+        />
+
+        <Label text="Storage Location" class="sapUiSmallMarginTop" />
+        <Select
+          items="{staticData>/storageLocations}"
+          selectedKey="{/selectedOutboundLocation}"
+        >
+          <core:Item key="{staticData>id}" text="{staticData>name}" />
+        </Select>
+
+        <HBox class="sapUiSmallMarginTop" justifyContent="SpaceBetween">
+          <Button text="Confirm Outbound" press=".onSubmitOutbound" type="Emphasized" />
+          <Button text="Reset" press=".onResetOutbound" type="Transparent" />
+        </HBox>
+      </VBox>
+    </Panel>
+  </Page>
+</mvc:View>

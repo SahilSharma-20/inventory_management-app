@@ -1,0 +1,2 @@
+sap.ui.define(["inv/mgm/inventorymanagement/controller/Main.controller"],function(n){"use strict";QUnit.module("Main Controller");QUnit.test("I should test the Main controller",function(t){var e=new n;e.onInit();t.ok(e)})});
+//# sourceMappingURL=Main.controller.js.map

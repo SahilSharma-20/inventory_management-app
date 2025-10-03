@@ -1,0 +1,29 @@
+{
+  "materials": [
+    {
+      "materialId": "MAT001",
+      "name": "Iron Ore",
+      "unit": "TON"
+    },
+    {
+      "materialId": "MAT002",
+      "name": "Coal",
+      "unit": "TON"
+    },
+    {
+      "materialId": "MAT003",
+      "name": "Limestone",
+      "unit": "TON"
+    }
+  ],
+  "storageLocations": [
+    {
+      "id": "LOC001",
+      "name": "Main Yard"
+    },
+    {
+      "id": "LOC002",
+      "name": "Warehouse 1"
+    }
+  ]
+}

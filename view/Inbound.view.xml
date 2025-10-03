@@ -1,0 +1,53 @@
+<mvc:View
+  controllerName="inv.mgm.inventorymanagement.controller.Inbound"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+
+  <VBox class="sapUiSmallMargin">
+    <Title text="Inbound Material" />
+    
+    <HBox>
+      <Input
+        id="materialInput"
+        placeholder="Scan or enter material"
+        value="{/selectedMaterial}"
+        width="70%"
+      />
+      <Button
+        icon="sap-icon://barcode-scan"
+        press=".onScanMaterial"
+        tooltip="Scan Material"
+        width="30%"
+      />
+    </HBox>
+
+    <Input
+      placeholder="Quantity"
+      type="Number"
+      value="{/quantity}"
+      class="sapUiSmallMarginTop"
+    />
+
+    <Select
+      items="{staticData>/storageLocations}"
+      selectedKey="{/selectedLocation}"
+      class="sapUiSmallMarginTop"
+    >
+      <core:Item key="{staticData>id}" text="{staticData>name}" />
+    </Select>
+
+    <Button
+      text="Confirm Inbound"
+      press=".onSubmit"
+      class="sapUiSmallMarginTop"
+      type="Emphasized"
+    />
+    <Button
+      text="Reset"
+      press=".onReset"
+      class="sapUiSmallMarginTop"
+      type="Transparent"
+    />
+  </VBox>
+</mvc:View>

@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/test/Opa5","./arrangements/Startup","./NavigationJourney"],function(e,n){"use strict";e.extendConfig({arrangements:new n,viewNamespace:"inv.mgm.inventorymanagement.view.",autoWait:true})});
+//# sourceMappingURL=AllJourneys.js.map

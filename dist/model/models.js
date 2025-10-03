@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/model/json/JSONModel","sap/ui/Device"],function(e,t){"use strict";return{createDeviceModel:function(){var a=new e(t);a.setDefaultBindingMode("OneWay");return a},createAppModel:function(){var t=new e({selectedRole:"",selectedMaterial:"",selectedLocation:"",quantity:"",transactions:[]});t.setDefaultBindingMode("TwoWay");return t},createStaticDataModel:function(){var t=new e;t.loadData("model/staticData.json");return t}}});
+//# sourceMappingURL=models.js.map

@@ -1,0 +1,15 @@
+<mvc:View
+  controllerName="inv.mgm.inventorymanagement.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+
+  <Page title="Inventory Management Dashboard" class="sapUiResponsivePadding--content">
+    <VBox alignItems="Center" class="sapUiSmallMarginTop">
+      <Title text="Inventory Management" class="sapUiTinyMarginBottom"/>
+
+      <Button text="Inbound Material" press="onNavInbound" width="15rem" class="sapUiSmallMarginTop"/>
+      <Button text="Outbound Material" press="onNavOutbound" width="15rem" class="sapUiSmallMarginTop"/>
+      <Button text="Stock Lookup" press="onNavStockLookup" width="15rem" class="sapUiSmallMarginTop"/>
+    </VBox>
+  </Page>
+</mvc:View>

@@ -1,0 +1,36 @@
+<mvc:View
+  controllerName="inv.mgm.inventorymanagement.controller.StockLookup"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+
+  <Page title="Stock Lookup" showNavButton="true"
+    navButtonPress=".onNavBack" class="sapUiResponsivePadding--content">
+    <Panel headerText="Check Material Stock" class="sapUiSmallMargin">
+      <VBox class="sapUiSmallMargin">
+        <Label text="Material Code" />
+        <HBox>
+          <Input
+            id="stockLookupInput"
+            placeholder="Scan or enter material code"
+            value="{/stockLookupMaterial}"
+            width="100%"
+            submit=".onMaterialSubmit"
+          />
+          <Button
+            icon="sap-icon://bar-code"
+            press=".onScanStockLookup"
+            tooltip="Scan Material"
+            class="sapUiTinyMarginBegin"
+          />
+        </HBox>
+
+        <Label text="Stock Details" class="sapUiSmallMarginTop" />
+        <Text
+          text="{/stockDetails}"
+          wrapping="true"
+        />
+      </VBox>
+    </Panel>
+  </Page>
+</mvc:View>
