@@ -1,4 +1,4 @@
-sap.ui.define([
+sap.ui.define([ 
   "sap/ui/core/mvc/Controller",
   "sap/m/MessageToast",
   "sap/ndc/BarcodeScanner"
@@ -7,10 +7,9 @@ sap.ui.define([
 
   return Controller.extend("inv.mgm.inventorymanagement.controller.Inbound", {
     onInit() {
-      // Set model for inbound data
       this.getView().setModel(new sap.ui.model.json.JSONModel({
         selectedMaterial: "",
-        quantity: 0,
+        quantity: "0",          // default quantity 0 on load
         selectedLocation: ""
       }));
     },
@@ -20,7 +19,6 @@ sap.ui.define([
         (mResult) => {
           if (!mResult.cancelled) {
             this.getView().getModel().setProperty("/selectedMaterial", mResult.text);
-            MessageToast.show("Scanned: " + mResult.text);
           }
         },
         (Error) => {
@@ -31,27 +29,43 @@ sap.ui.define([
 
     onSubmit() {
       const oModel = this.getView().getModel();
-      const material = oModel.getProperty("/selectedMaterial");
-      const qty = oModel.getProperty("/quantity");
-      const loc = oModel.getProperty("/selectedLocation");
+      const data = oModel.getData();
 
-      if (!material || qty <= 0 || !loc) {
-        MessageToast.show("Please fill all fields.");
+      if (!data.selectedMaterial || !data.quantity || !data.selectedLocation) {
+        MessageToast.show("Please fill all fields");
         return;
       }
 
-      // TODO: Submit inbound material to backend/service
-      MessageToast.show(`Inbound Confirmed: ${material} qty: ${qty} loc: ${loc}`);
+      const appModel = this.getOwnerComponent().getModel("appModel");
+      const stockData = appModel.getProperty("/stockData") || [];
 
+      const index = stockData.findIndex(item => item.material === data.selectedMaterial && item.location === data.selectedLocation);
+      if (index > -1) {
+        stockData[index].quantity += parseInt(data.quantity, 10);
+      } else {
+        stockData.push({
+          material: data.selectedMaterial,
+          quantity: parseInt(data.quantity, 10),
+          location: data.selectedLocation
+        });
+      }
+
+      appModel.setProperty("/stockData", stockData);
+
+      MessageToast.show("Inbound material saved.");
       this.onReset();
     },
 
     onReset() {
-      this.getView().getModel().setData({
+      this.getView().setModel(new sap.ui.model.json.JSONModel({
         selectedMaterial: "",
-        quantity: 0,
+        quantity: "0",
         selectedLocation: ""
-      });
+      }));
+    },
+
+    onNavBack() {
+      this.getOwnerComponent().getRouter().navTo("Main");
     }
   });
 });

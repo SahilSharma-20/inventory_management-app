@@ -1,2 +1,0 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"],function(n){"use strict";return n.extend("inv.mgm.inventorymanagement.controller.Main",{onNavInbound:function(){this.getOwnerComponent().getRouter().navTo("Inbound")},onNavOutbound:function(){this.getOwnerComponent().getRouter().navTo("Outbound")},onNavStockLookup:function(){this.getOwnerComponent().getRouter().navTo("StockLookup")}})});
-//# sourceMappingURL=Main.controller.js.map

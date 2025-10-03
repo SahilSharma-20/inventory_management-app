@@ -21,8 +21,14 @@ sap.ui.define([
       this.setModel(models.createAppModel(), "appModel");
       this.setModel(models.createStaticDataModel(), "staticData");
 
+      // Add shared stock model
+      const stockModel = new sap.ui.model.json.JSONModel({
+        stockEntries: [] // Array of material stock objects
+      });
+      this.setModel(stockModel, "stockData");
+
       // Initialize the router
       this.getRouter().initialize();
-    }
+    },
   });
 });
