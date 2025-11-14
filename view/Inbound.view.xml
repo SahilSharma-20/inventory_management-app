@@ -4,50 +4,46 @@
   xmlns="sap.m"
   xmlns:core="sap.ui.core">
 
-  <VBox class="sapUiSmallMargin">
-    <Title text="Inbound Material" />
-    
-    <HBox>
-      <Input
-        id="materialInput"
-        placeholder="Scan or enter material"
-        value="{/selectedMaterial}"
-        width="70%"
-      />
-      <Button
-        icon="sap-icon://barcode-scan"
-        press=".onScanMaterial"
-        tooltip="Scan Material"
-        width="30%"
-      />
-    </HBox>
+  <Page title="Inbound Material" showNavButton="true"
+    navButtonPress=".onNavBack" class="sapUiResponsivePadding--content">
+    <Panel headerText="Inbound Entry" class="sapUiSmallMargin">
+      <VBox class="sapUiSmallMargin">
+        <Label text="Material" labelFor="materialInput" />
+        <HBox>
+          <Input
+            id="materialInput"
+            placeholder="Scan or enter material"
+            value="{/selectedMaterial}"
+            width="100%"
+          />
+          <Button
+            icon="sap-icon://bar-code"
+            press=".onScanMaterial"
+            tooltip="Scan Material"
+            class="sapUiTinyMarginBegin"
+          />
+        </HBox>
 
-    <Input
-      placeholder="Quantity"
-      type="Number"
-      value="{/quantity}"
-      class="sapUiSmallMarginTop"
-    />
+        <Label text="Quantity" class="sapUiSmallMarginTop" />
+        <Input
+          placeholder="Quantity"
+          type="Number"
+          value="{/quantity}"
+        />
 
-    <Select
-      items="{staticData>/storageLocations}"
-      selectedKey="{/selectedLocation}"
-      class="sapUiSmallMarginTop"
-    >
-      <core:Item key="{staticData>id}" text="{staticData>name}" />
-    </Select>
+        <Label text="Storage Location" class="sapUiSmallMarginTop" />
+        <Select
+          items="{staticData>/storageLocations}"
+          selectedKey="{/selectedLocation}"
+        >
+          <core:Item key="{staticData>id}" text="{staticData>name}" />
+        </Select>
 
-    <Button
-      text="Confirm Inbound"
-      press=".onSubmit"
-      class="sapUiSmallMarginTop"
-      type="Emphasized"
-    />
-    <Button
-      text="Reset"
-      press=".onReset"
-      class="sapUiSmallMarginTop"
-      type="Transparent"
-    />
-  </VBox>
+        <HBox class="sapUiSmallMarginTop" justifyContent="SpaceBetween">
+          <Button text="Confirm Inbound" press=".onSubmit" type="Emphasized" />
+          <Button text="Reset" press=".onReset" type="Transparent" />
+        </HBox>
+      </VBox>
+    </Panel>
+  </Page>
 </mvc:View>

@@ -4,50 +4,46 @@
   xmlns="sap.m"
   xmlns:core="sap.ui.core">
 
-  <VBox class="sapUiSmallMargin">
-    <Title text="Outbound Material" />
-    
-    <HBox>
-      <Input
-        id="outboundMaterialInput"
-        placeholder="Scan or enter material or delivery note"
-        value="{/selectedOutboundMaterial}"
-        width="70%"
-      />
-      <Button
-        icon="sap-icon://barcode-scan"
-        press=".onScanOutboundMaterial"
-        tooltip="Scan Material"
-        width="30%"
-      />
-    </HBox>
+  <Page title="Outbound Material" showNavButton="true"
+    navButtonPress=".onNavBack" class="sapUiResponsivePadding--content">
+    <Panel headerText="Outbound Entry" class="sapUiSmallMargin">
+      <VBox class="sapUiSmallMargin">
+        <Label text="Material or Delivery Note" />
+        <HBox>
+          <Input
+            id="outboundMaterialInput"
+            placeholder="Scan or enter material or delivery note"
+            value="{/selectedOutboundMaterial}"
+            width="100%"
+          />
+          <Button
+            icon="sap-icon://bar-code"
+            press=".onScanOutboundMaterial"
+            tooltip="Scan Material"
+            class="sapUiTinyMarginBegin"
+          />
+        </HBox>
 
-    <Input
-      placeholder="Quantity"
-      type="Number"
-      value="{/outboundQuantity}"
-      class="sapUiSmallMarginTop"
-    />
+        <Label text="Quantity" class="sapUiSmallMarginTop" />
+        <Input
+          placeholder="Quantity"
+          type="Number"
+          value="{/outboundQuantity}"
+        />
 
-    <Select
-      items="{staticData>/storageLocations}"
-      selectedKey="{/selectedOutboundLocation}"
-      class="sapUiSmallMarginTop"
-    >
-      <core:Item key="{staticData>id}" text="{staticData>name}" />
-    </Select>
+        <Label text="Storage Location" class="sapUiSmallMarginTop" />
+        <Select
+          items="{staticData>/storageLocations}"
+          selectedKey="{/selectedOutboundLocation}"
+        >
+          <core:Item key="{staticData>id}" text="{staticData>name}" />
+        </Select>
 
-    <Button
-      text="Confirm Outbound"
-      press=".onSubmitOutbound"
-      class="sapUiSmallMarginTop"
-      type="Emphasized"
-    />
-    <Button
-      text="Reset"
-      press=".onResetOutbound"
-      class="sapUiSmallMarginTop"
-      type="Transparent"
-    />
-  </VBox>
+        <HBox class="sapUiSmallMarginTop" justifyContent="SpaceBetween">
+          <Button text="Confirm Outbound" press=".onSubmitOutbound" type="Emphasized" />
+          <Button text="Reset" press=".onResetOutbound" type="Transparent" />
+        </HBox>
+      </VBox>
+    </Panel>
+  </Page>
 </mvc:View>

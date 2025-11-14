@@ -3,10 +3,26 @@
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m">
 
-  <VBox class="sapUiContentPadding">
-    <Title text="Inventory Management Dashboard" />
-    <Button text="Inbound Material" press="onNavInbound" class="sapUiSmallMarginTop"/>
-    <Button text="Outbound Material" press="onNavOutbound" class="sapUiSmallMarginTop"/>
-    <Button text="Stock Lookup" press="onNavStockLookup" class="sapUiSmallMarginTop"/>
-  </VBox>
+  <Page class="sapUiResponsivePadding--content fullPageBackground">
+    <customHeader>
+        <Bar>
+            <contentLeft>
+                <HBox alignItems="Center">
+                    <Image src="img/logo.png" height="70px" class="sapUiSmallMarginEnd"/>
+                    <Title text="Inventory Management Dashboard"/>
+                </HBox>
+            </contentLeft>
+        </Bar>
+    </customHeader>
+
+    <VBox alignItems="Center" class="sapUiSmallMarginTop centerContent">
+    <Title text="Inventory Management" class="sapUiTinyMarginBottom whiteBoldTitle"/>
+
+    <Button text="Inbound Material" press="onNavInbound" width="15rem" class="sapUiSmallMarginTop"/>
+    <Button text="Outbound Material" press="onNavOutbound" width="15rem" class="sapUiSmallMarginTop"/>
+    <Button text="Stock Lookup" press="onNavStockLookup" width="15rem" class="sapUiSmallMarginTop"/>
+   </VBox>
+
+  </Page>
+
 </mvc:View>
