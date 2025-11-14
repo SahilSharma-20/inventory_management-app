@@ -1,1 +1,22 @@
 /* Enter your custom styles here */
+.fullPageBackground {
+    background-image: url("../img/full-page.png");
+    background-size: cover;        /* Makes image responsive */
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+.whiteBoldTitle {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 1.3rem !important;
+}
+.centerContent {
+    height: calc(100vh - 100px); /* reduce height because of header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertical center */
+    align-items: center;       /* horizontal center */
+}
+
